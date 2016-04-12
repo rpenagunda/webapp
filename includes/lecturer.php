@@ -1,0 +1,5 @@
+<?php
+
+echo "Lecturer page";
+
+?>
