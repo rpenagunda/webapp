@@ -3,7 +3,7 @@
 session_start();
 
 // Set session variables
-$_SESSION["user_id"] = "1";
+$_SESSION["user_id"] = "3";
 
 // Helper
 include "function/helper.php";
@@ -17,12 +17,16 @@ include "includes/nav.php";
 
       <div class="starter-template">
         <?php
-            $role = userRole($_SESSION["user_id"]);
+            // User info
+            $user = userInfo($_SESSION["user_id"]);
+            // User modules
+            $modules = userModules($_SESSION["user_id"]);
           
-            if($role == "Student") {
+            // Show appropriate page
+            if($user["Role"] == "Student") {
                 // Student Page
                 include "includes/student.php";
-            } else if($role == "Lecturer") {
+            } else if($user["Role"] == "Lecturer") {
                 // Lecturer Page
                 include "includes/lecturer.php";
             } 
